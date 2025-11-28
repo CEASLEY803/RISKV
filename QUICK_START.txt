@@ -1,0 +1,77 @@
+================================================================================
+RISC-V SimpleOS - Quick Start for Lab Machines
+================================================================================
+
+FASTEST WAY TO GET RUNNING:
+
+  1. cd myos
+  2. bash setup-lab.sh          # Install all tools
+  3. make                        # Build kernel
+  4. make run                    # Run in QEMU
+  5. Ctrl+A, then X              # Exit QEMU
+
+================================================================================
+ONE-LINER IF TOOLS ALREADY INSTALLED:
+
+  make && make run
+
+================================================================================
+WHAT YOU'LL SEE:
+
+  - Boot sequence (initialization messages)
+  - Process A creates file_a.txt
+  - Process B reads file_a.txt
+  - Process B creates file_b.txt
+  - Both files listed with byte counts
+  - Processes yield to each other continuously
+
+================================================================================
+FILE LOCATIONS:
+
+  Assembly:      boot.S          Entry point, trap vector, context switching
+  Kernel:        kernel.c        All C code: drivers, memory, processes, FS
+  Header:        common.h        Type definitions, CSR macros, syscalls
+  Linker:        kernel.ld       Memory layout
+  Build:         makefile        Compilation rules
+  Setup:         setup-lab.sh    Automated installation
+  Full Docs:     readme.md       Complete documentation
+  Lab Docs:      LAB_SETUP.md    Lab-specific instructions
+
+================================================================================
+TROUBLESHOOTING:
+
+  Problem                Solution
+  ─────────────────────────────────────────────────────────────────────────
+  gcc not found         sudo apt install gcc-riscv64-unknown-elf
+  QEMU not found        sudo apt install qemu-system-misc
+  make not found        sudo apt install build-essential
+  Compilation warnings  Normal - code runs fine anyway
+  QEMU hangs            Normal - infinite process loop. Use Ctrl+A then X
+
+================================================================================
+MAKEFILE COMMANDS:
+
+  make              Build the kernel (creates kernel.elf)
+  make run          Run in QEMU (boots kernel automatically)
+  make clean        Remove build artifacts
+
+================================================================================
+KEYBOARD SHORTCUTS IN QEMU:
+
+  Ctrl+A, X         Exit QEMU gracefully
+  Ctrl+A, C         Open QEMU monitor (type 'quit' to exit)
+  Ctrl+C            Force quit (last resort)
+
+================================================================================
+KEY FEATURES DEMONSTRATED:
+
+  ✓ CPU boot sequence and initialization
+  ✓ Trap handling (exceptions and interrupts)
+  ✓ Memory management (page allocator)
+  ✓ Process context switching
+  ✓ System calls via ecall instruction
+  ✓ File system (create, read, write, delete, list)
+  ✓ Inter-process file sharing
+  ✓ Cooperative multitasking
+
+================================================================================

@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat:*)",
+      "Bash(make clean:*)",
+      "Bash(make run:*)",
+      "Bash(cd:*)",
+      "Bash(make:*)",
+      "Bash(wsl -e bash:*)",
+      "Bash(timeout 5 qemu-system-riscv64:*)",
+      "Bash(riscv64-unknown-elf-gcc:*)",
+      "Bash(wsl -e grep:*)",
+      "Bash(chmod:*)",
+      "Bash(ls:*)",
+      "Bash(git config:*)",
+      "Bash(git remote add:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
